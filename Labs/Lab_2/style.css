@@ -1,0 +1,26 @@
+#titulo{
+    font-size: 50px;
+    color:green;
+}
+
+.paragrafo{
+    font-size: 30px;
+    color:red;
+}
+
+div p{
+    margin: 50px;
+    padding: 40px;
+}
+
+li:hover{
+    background-color:black;
+    color: red;
+    text-align: center;
+}
+
+.acessos{
+    font-size: 40px;
+    color:aqua;
+    background-color: brown;
+}

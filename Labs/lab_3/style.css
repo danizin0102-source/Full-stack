@@ -1,0 +1,41 @@
+div{
+    margin: 20px;
+    padding: 50px;
+}
+.bg_bisque{
+    background-color: bisque;
+}
+.solido{
+    border: 10px solid black;
+}
+.borda{
+    border: 10px solid darkblue;
+}
+
+body{
+    background-color: lightgray;
+}
+
+.d1{
+    text-align: center;
+}
+
+.txt_green{
+    color: darkgreen;
+}
+
+.txt_roxo{
+    color:indigo;
+}
+
+img{
+    position: relative;
+    left: 450px;
+    height: 450px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.d2{
+    text-align:center;
+}
