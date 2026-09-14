@@ -1,0 +1,56 @@
+header{
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+h1{
+    background-color: antiquewhite;
+}
+
+.imagem{
+    background-color: brown;
+    color: white;
+}
+
+nav{
+    display:flex;
+    background-color: coral;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+section{
+    display: flex;
+    gap: 10px;
+    background-color: beige;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height:500px;
+
+}
+
+section div{
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+#d1{
+    order: 3;
+    flex-grow: 1;
+}
+
+#d2{
+    order: 5;
+    flex-grow: 1;
+}
+
+#d3{
+    order: 4;
+    flex-grow: 1;
+}

@@ -1,0 +1,80 @@
+header{
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+
+h1{
+    text-align: center;
+}
+
+.imagem{
+    text-align: center;
+    background-color:burlywood;
+}
+
+nav{
+    display:grid;
+    background-color: aqua;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    justify-content: center;
+}
+
+a{
+    background-color: bisque;
+    margin: 10px;
+    text-align: center;
+}
+
+section{
+    display: grid;
+    gap: 10px;
+    background-color: beige;
+    grid-template-rows: auto auto auto;
+    height: 800px;
+    align-content:start
+}
+
+h2{
+    background-color: coral;
+    text-align: center;
+}
+
+#grid_div{
+    background-color: cadetblue;
+    display:grid;
+    /* grid-template-columns: auto auto auto; */
+    gap: 10px;
+    grid-template-areas:
+    "topo topo topo topo topo topo"
+    "menu main main main main direita"
+    "menu rodape rodape rodape rodape rodape";
+}
+
+#grid_div div{
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+#d1{
+    grid-area: topo;
+    /* grid-column-start:1;*/
+    /* grid-column-end:4; */
+}
+
+ #d2{
+    grid-area:menu;
+}
+
+#d3{
+    grid-area: main;
+}
+
+#d4{
+    grid-area:direita;
+}
+
+#d5{
+    grid-area:rodape;
+}
