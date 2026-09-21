@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260">
+  <rect width="400" height="260" rx="14" fill="#E7EEF5"/>
+  <rect x="0" y="0" width="400" height="30" rx="14" fill="#4A7BA6"/>
+  <circle cx="18" cy="15" r="4" fill="#E7EEF5"/>
+  <circle cx="32" cy="15" r="4" fill="#E7EEF5"/>
+  <circle cx="46" cy="15" r="4" fill="#E7EEF5"/>
+
+  <rect x="24" y="46" width="220" height="94" rx="10" fill="#ffffff"/>
+  <rect x="40" y="60" width="90" height="8" rx="4" fill="#2B2A28"/>
+  <text x="40" y="108" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#4A7BA6">23°C</text>
+  <circle cx="200" cy="80" r="18" fill="#F2B705"/>
+  <ellipse cx="185" cy="98" rx="26" ry="14" fill="#ffffff" stroke="#D7E3EE" stroke-width="2"/>
+
+  <rect x="256" y="46" width="120" height="94" rx="10" fill="#ffffff"/>
+  <rect x="270" y="60" width="60" height="7" rx="3.5" fill="#8B8578"/>
+  <text x="270" y="104" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#2B2A28">19°C</text>
+
+  <rect x="24" y="154" width="352" height="82" rx="10" fill="#ffffff"/>
+  <g font-family="Arial, sans-serif" font-size="11" fill="#8B8578">
+    <text x="46" y="176">Seg</text><text x="102" y="176">Ter</text><text x="158" y="176">Qua</text>
+    <text x="214" y="176">Qui</text><text x="270" y="176">Sex</text><text x="326" y="176">Sáb</text>
+  </g>
+  <circle cx="50" cy="200" r="10" fill="#F2B705"/>
+  <circle cx="106" cy="200" r="10" fill="#A9C6DE"/>
+  <circle cx="162" cy="200" r="10" fill="#F2B705"/>
+  <circle cx="218" cy="200" r="10" fill="#4A7BA6"/>
+  <circle cx="274" cy="200" r="10" fill="#A9C6DE"/>
+  <circle cx="330" cy="200" r="10" fill="#F2B705"/>
+  <g font-family="Arial, sans-serif" font-size="11" fill="#2B2A28">
+    <text x="42" y="222">24°</text><text x="98" y="222">21°</text><text x="154" y="222">25°</text>
+    <text x="208" y="222">18°</text><text x="264" y="222">20°</text><text x="322" y="222">23°</text>
+  </g>
+</svg>
