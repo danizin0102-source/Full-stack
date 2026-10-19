@@ -1,0 +1,9 @@
+#canvas{
+    background-color: aqua;
+}
+#ex1, #ex4{
+    background-color: gray;
+}
+#ex2, #ex3{
+    background-color: rgb(224, 255, 243);
+}
