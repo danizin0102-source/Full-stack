@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pântano Surreal — Bombardino vs. Tralalero</title>
+  <meta name="description" content="Shoot 'em up 2D com estética de desenho animado dos anos 30, feito em HTML, CSS e JavaScript.">
+
+  <!-- Fontes (Google Fonts, licença OFL). Se estiver offline, o navegador usa Georgia / Courier New. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- CSS linkado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+
+  <!-- ===================== MENU (presente em todas as páginas) ===================== -->
+  <header class="topbar">
+    <div class="brand">PÂNTANO <span>SURREAL</span></div>
+    <nav id="menu" aria-label="Menu principal">
+      <a href="#home" data-page="home">Apresentação</a>
+      <a href="#devs" data-page="devs">Desenvolvedores</a>
+      <a href="#jogo" data-page="jogo">Jogar</a>
+    </nav>
+  </header>
+
+  <!-- ============================ PÁGINA 1: APRESENTAÇÃO ============================ -->
+  <main id="home" class="page active">
+    <div class="wrap">
+
+      <section class="hero">
+        <h1>Bombardino<br>vs. Tralalero</h1>
+        <p class="tag">Um <em>shoot 'em up</em> 2D de rolagem horizontal, desenhado como um cartum de 1930: tinta nanquim, película riscada e um pântano onde até as árvores têm cara.</p>
+        <a class="btn" href="#jogo">▶ Jogar agora</a>
+      </section>
+
+      <h2>Sobre o jogo</h2>
+      <p>
+        <strong>Pântano Surreal</strong> é um jogo de nave (<em>shmup</em>) em que você pilota o <strong>Bombardino Crocodilo</strong>,
+        um crocodilo-bombardeiro, por uma única fase linear em um pântano noturno de estética surreal. Na primeira parte você atravessa
+        o pântano enfrentando <strong>ondas de capangas</strong> (sapos trompetistas e peixes voadores) por cerca de 3 minutos.
+        Na segunda parte chega ao confronto final contra o <strong>BOSS Tralalero Tralala</strong>, um tubarão de três pernas com tênis que
+        muda de comportamento conforme perde vida.
+      </p>
+      <p>
+        A inspiração vem da estética e das batalhas de <em>run and gun</em> do jogo <em>Cuphead</em>, em especial da luta aérea
+        contra <em>Hilda Berg</em>: o chefe ocupa boa parte da tela, ataca em fases e exige ler padrões de projéteis. A linguagem visual remete aos desenhos
+        dos anos 30 (estúdios Fleischer): personagens "de borracha", olhos em formato de torta, contornos grossos, granulado e tremidinha de filme antigo.
+      </p>
+
+      <h2>Personagens</h2>
+      <div class="grid cols-3">
+        <article class="card char">
+          <div class="portrait">
+            <img src="bombardinocrocodilo.png" alt="Bombardino Crocodilo" onerror="this.replaceWith(document.createTextNode('(coloque bombardinocrocodilo.png nesta pasta)'))">
+          </div>
+          <h3>Bombardino Crocodilo</h3>
+          <p>O herói. Um crocodilo-bombardeiro que dispara tiros duplos e, ao encher a barra de energia, solta uma explosão que limpa a tela.</p>
+        </article>
+        <article class="card char">
+          <div class="portrait">
+            <img src="tralalerotralala.png" alt="Tralalero Tralala" onerror="this.replaceWith(document.createTextNode('(coloque tralalerotralala.png nesta pasta)'))">
+          </div>
+          <h3>Tralalero Tralala</h3>
+          <p>O chefe final. Um tubarão com três pernas e tênis, que dispara leques de projéteis, rajadas, espirais e investidas relâmpago.</p>
+        </article>
+        <article class="card char">
+          <div class="portrait" style="font-size:1.1rem">🐸 &nbsp; 🐟</div>
+          <h3>Os Capangas</h3>
+          <p><strong>Sapos trompetistas</strong> zigueza­gueiam e soltam notas musicais. <strong>Peixes voadores</strong> mergulham em ondas e cospem bolhas na sua direção.</p>
+        </article>
+      </div>
+
+      <h2>Como a fase funciona</h2>
+      <div class="timeline">
+        <div class="step"><div class="n">1</div><div><strong>Percurso (≈ 3 minutos).</strong> Um "diretor" de fase agenda formações de inimigos (linha, coluna, "V", cobra de peixes e mista). A dificuldade cresce com o tempo: ondas mais frequentes, mais inimigos e tiros mais precisos.</div></div>
+        <div class="step"><div class="n">2</div><div><strong>Chegada do chefe.</strong> Quando a barra de percurso enche, aparece o aviso "PREPARE-SE! WALLOP!" e Tralalero Tralala emerge do pântano. A música acelera.</div></div>
+        <div class="step"><div class="n">3</div><div><strong>Fase 1 do chefe (100%–66%).</strong> Leques de projéteis mirados e rajadas rápidas.</div></div>
+        <div class="step"><div class="n">4</div><div><strong>Fase 2 (66%–33%).</strong> Leques mais largos e <em>investidas</em>: o chefe treme, uma faixa vermelha avisa a altura do ataque e ele atravessa a tela.</div></div>
+        <div class="step"><div class="n">5</div><div><strong>Fase 3 (33%–0%).</strong> Espirais de projéteis, investida dupla e leques de 9 tiros.</div></div>
+        <div class="step"><div class="n">6</div><div><strong>KNOCKOUT!</strong> Ao derrotar o chefe, câmera lenta, explosões em cadeia e o letreiro "KNOCKOUT!", seguido da nota final (S a D) conforme os danos que você sofreu.</div></div>
+      </div>
+
+      <h2>Mecânicas</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Movimento fluido</h3><p>O personagem acelera e desacelera suavemente (interpolação exponencial), inclina ao subir/descer e tem uma hitbox pequena, característica do gênero.</p></div>
+        <div class="card"><h3>Tiro contínuo</h3><p>Segurar o botão de tiro dispara dois projéteis por vez com leve dispersão. Cada acerto também recarrega a barra de energia.</p></div>
+        <div class="card"><h3>Ataque especial</h3><p>A barra de 5 cartões enche ao acertar e derrotar inimigos. Cheia, o especial cria uma onda de choque que destrói projéteis inimigos, machuca capangas e causa dano alto ao chefe, com invencibilidade durante o efeito.</p></div>
+        <div class="card"><h3>Vida e nota</h3><p>São 5 pontos de vida (HP). Ao ser atingido você fica invulnerável por um instante. Terminar com poucos danos rende nota maior.</p></div>
+      </div>
+
+      <h2>Visual e áudio</h2>
+      <div class="grid cols-2">
+        <div class="card dark">
+          <h3>Parallax de 3 camadas</h3>
+          <ul>
+            <li><strong>Fundo (lento):</strong> céu noturno sépia/azul, lua gigante sorridente cujos olhos seguem você, nuvens em formato de fumaça de cachimbo.</li>
+            <li><strong>Meio (médio):</strong> árvores velhas com rostos caricatos e cipós retorcidos.</li>
+            <li><strong>Frente (rápido):</strong> vitórias-régias, libélulas de cartola e névoa do pântano.</li>
+          </ul>
+        </div>
+        <div class="card dark">
+          <h3>Iluminação e filtro vintage</h3>
+          <ul>
+            <li>Cena escurecida com luzes dinâmicas (jogador, tiros, chefe, lua).</li>
+            <li>Filtro sépia, vinheta, granulado, riscos de película e cintilação de projetor.</li>
+            <li>Tremidinha de desenho animado ("line boil") no cenário.</li>
+            <li>Efeitos sonoros e música estilo ragtime gerados em tempo real com a Web Audio API.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Tecnologias</h2>
+      <p>
+        O jogo é feito somente com <strong>HTML5, CSS3 e JavaScript puro</strong> (sem bibliotecas ou engines), desenhando tudo no elemento <code>&lt;canvas&gt;</code>.
+        O código está dividido em módulos por responsabilidade (configuração, entrada, áudio, sprites, cenário, entidades, diretor de ondas, efeitos e laço principal).
+        O detalhamento arquivo a arquivo está na página <a href="#devs">Desenvolvedores</a>.
+      </p>
+    </div>
+  </main>
+
+  <!-- ============================ PÁGINA 2: DESENVOLVEDORES ============================ -->
+  <main id="devs" class="page">
+    <div class="wrap">
+      <section class="hero">
+        <h1>Desenvolvedores</h1>
+        <p class="tag">Quem fez o <em>Pântano Surreal</em> e como o projeto foi construído.</p>
+      </section>
+
+      <p class="card" style="background:#fff3a8">
+        <strong>Atenção, grupo:</strong> os campos destacados em amarelo são <span class="todo">PREENCHER</span> e precisam ser substituídos pelos dados reais antes da entrega.
+        Copie o bloco do integrante quantas vezes forem necessárias.
+      </p>
+
+      <h2>Integrantes</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3><span class="todo">Nome do Integrante 1</span></h3>
+          <p><strong>RA:</strong> <span class="todo">000000</span></p>
+          <p><strong>E-mail:</strong> <span class="todo">integrante1@email.com</span></p>
+          <p><strong>Currículo breve:</strong> <span class="todo">Estudante de graduação em ..., interesse em desenvolvimento de jogos e web. Experiências, estágios, projetos.</span></p>
+          <p><strong>Neste projeto:</strong> <span class="todo">ex.: programação do chefe e do laço principal</span></p>
+          <p><strong>Links:</strong> <span class="todo">GitHub / LinkedIn</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="todo">Nome do Integrante 2</span></h3>
+          <p><strong>RA:</strong> <span class="todo">000000</span></p>
+          <p><strong>E-mail:</strong> <span class="todo">integrante2@email.com</span></p>
+          <p><strong>Currículo breve:</strong> <span class="todo">...</span></p>
+          <p><strong>Neste projeto:</strong> <span class="todo">ex.: cenário parallax e efeitos visuais</span></p>
+          <p><strong>Links:</strong> <span class="todo">GitHub / LinkedIn</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="todo">Nome do Integrante 3</span></h3>
+          <p><strong>RA:</strong> <span class="todo">000000</span></p>
+          <p><strong>E-mail:</strong> <span class="todo">integrante3@email.com</span></p>
+          <p><strong>Currículo breve:</strong> <span class="todo">...</span></p>
+          <p><strong>Neste projeto:</strong> <span class="todo">ex.: páginas HTML/CSS e documentação</span></p>
+          <p><strong>Links:</strong> <span class="todo">GitHub / LinkedIn</span></p>
+        </article>
+      </div>
+
+      <h2>Mapa do código (para a apresentação)</h2>
+      <p>Cada arquivo tem uma responsabilidade. Esta tabela serve de roteiro para explicar o código na defesa.</p>
+      <table>
+        <thead><tr><th>Arquivo</th><th>O que faz</th><th>Conceito para explicar</th></tr></thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>As 3 páginas, o menu e o <code>&lt;canvas&gt;</code> com as telas (menu, pausa, game over, vitória).</td><td>Seções com <code>id</code>, navegação por hash, overlays sobre o canvas.</td></tr>
+          <tr><td><code>style.css</code></td><td>Todo o visual do site (tema anos 30), linkado no <code>&lt;head&gt;</code>.</td><td>Variáveis CSS, grid, <code>aspect-ratio</code>, responsividade.</td></tr>
+          <tr><td><code>nav.js</code></td><td>Mostra só a seção ativa e marca o item do menu.</td><td><code>hashchange</code>, <code>classList.toggle</code>, evento personalizado.</td></tr>
+          <tr><td><code>config.js</code></td><td>Constantes: tamanho do canvas, vidas, duração da fase, vida do chefe, paleta.</td><td>Evitar "números mágicos" espalhados.</td></tr>
+          <tr><td><code>utils.js</code></td><td>Funções de matemática (<code>lerp</code>, <code>clamp</code>, colisão círculo-círculo) e de desenho.</td><td>Interpolação linear, distância euclidiana.</td></tr>
+          <tr><td><code>input.js</code></td><td>Lê o teclado: teclas seguradas × teclas apertadas neste frame.</td><td><code>keydown</code>/<code>keyup</code>, <code>Set</code>, mapa de teclas.</td></tr>
+          <tr><td><code>audio.js</code></td><td>Efeitos e música sintetizados com osciladores.</td><td>Web Audio API, envelope de volume, agendamento de notas.</td></tr>
+          <tr><td><code>sprites.js</code></td><td>Carrega os PNGs e desenha o fallback em canvas se faltarem.</td><td><code>Image.onload/onerror</code>, transformações do canvas.</td></tr>
+          <tr><td><code>background.js</code></td><td>Cenário com 3 camadas de parallax.</td><td>Pré-renderização em canvas offscreen, tile que se repete, velocidades diferentes por camada.</td></tr>
+          <tr><td><code>effects.js</code></td><td>Iluminação, sépia, vinheta, granulado e riscos de filme.</td><td><code>globalCompositeOperation</code> (<code>destination-out</code>, <code>multiply</code>), gradientes radiais.</td></tr>
+          <tr><td><code>entities.js</code></td><td>Tiros, partículas, jogador, sapos, peixes e o chefe.</td><td>Classes, herança (<code>extends</code>), máquina de estados do chefe.</td></tr>
+          <tr><td><code>director.js</code></td><td>Agenda as ondas de inimigos e chama o chefe no fim do percurso.</td><td>Fila de eventos no tempo, dificuldade progressiva.</td></tr>
+          <tr><td><code>game.js</code></td><td>Laço principal, estados, colisões, especial, HUD, banners e KNOCKOUT.</td><td><code>requestAnimationFrame</code>, delta time, máquina de estados do jogo.</td></tr>
+          <tr><td><code>main.js</code></td><td>Cria o <code>Game</code> quando a página carrega.</td><td>Ordem de carregamento dos scripts.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Uso de Inteligência Artificial</h2>
+      <div class="card">
+        <p>
+          <strong>Declaração:</strong> a estrutura inicial deste projeto (HTML, CSS e o código JavaScript do jogo) foi gerada com auxílio da
+          IA <strong>Claude</strong> (Anthropic), a partir de um prompt descrevendo o jogo desejado e os requisitos da disciplina.
+          Não foi usado o ChatGPT. O que a IA fez: escreveu o código-base dos módulos listados acima, o texto das páginas e a estrutura do site.
+        </p>
+        <p>
+          <strong>O que o grupo fez:</strong> <span class="todo">PREENCHER com a verdade: o que foi testado, alterado, balanceado, corrigido ou escrito pelo grupo (ex.: ajuste de dificuldade, troca de sprites, mudanças no chefe, textos e currículos).</span>
+        </p>
+        <p>
+          <strong>Compromisso com a explicação:</strong> todos os integrantes devem ser capazes de explicar o funcionamento do código. A tabela "Mapa do código" acima e os comentários
+          em cada arquivo foram escritos para isso.
+        </p>
+      </div>
+
+      <h2>Tutoriais e referências</h2>
+      <div class="card">
+        <p>
+          <strong>Tutoriais seguidos:</strong> <span class="todo">PREENCHER. Se o grupo não seguiu nenhum tutorial completo, escreva "nenhum"; se seguiu, cite título, autor e link e diga quais partes aproveitou.</span>
+        </p>
+        <p><strong>Documentação consultada (conceitos, sem cópia de código):</strong></p>
+        <ul>
+          <li>MDN Web Docs — <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Canvas_API/Tutorial" target="_blank" rel="noopener">Tutorial da Canvas API</a></li>
+          <li>MDN Web Docs — <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="noopener">window.requestAnimationFrame()</a></li>
+          <li>MDN Web Docs — <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Audio_API" target="_blank" rel="noopener">Web Audio API</a></li>
+          <li>MDN Web Docs — <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="noopener">globalCompositeOperation</a></li>
+        </ul>
+        <p><strong>Inspiração (nenhum asset foi usado):</strong></p>
+        <ul>
+          <li><em>Cuphead</em> (Studio MDHR, 2017) — estética e luta contra Hilda Berg.</li>
+          <li>Desenhos animados dos anos 30, como os do estúdio Fleischer — estilo visual.</li>
+          <li>Memes "Italian Brainrot" — personagens Bombardino Crocodilo e Tralalero Tralala (criação coletiva da comunidade da internet).
+              As imagens PNG usadas no jogo: <span class="todo">PREENCHER com a fonte/autor de cada imagem</span>.</li>
+        </ul>
+        <p><strong>Sprites, sons e fontes:</strong></p>
+        <ul>
+          <li>Sapos, peixes, cenário e fallbacks dos personagens: desenhados por código em canvas (autoria do grupo/IA, sem material de terceiros).</li>
+          <li>Sons e música: sintetizados por código (Web Audio API), sem arquivos de terceiros.</li>
+          <li>Fontes <em>Rye</em> e <em>Special Elite</em>: Google Fonts, licença SIL Open Font License.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============================ PÁGINA 3: JOGO ============================ -->
+  <main id="jogo" class="page">
+    <div class="wrap">
+      <h2 style="margin-top:0">Jogar</h2>
+
+      <div class="game-layout">
+        <div>
+          <div class="stage">
+            <canvas id="game" width="960" height="540" aria-label="Área do jogo"></canvas>
+
+            <!-- Menu inicial -->
+            <div class="overlay" id="screen-menu">
+              <h2 class="big">PÂNTANO<br>SURREAL</h2>
+              <p>Bombardino Crocodilo contra o terrível Tralalero Tralala!</p>
+              <div class="row">
+                <button class="btn" id="btn-play" type="button">▶ Jogar</button>
+                <button class="btn alt small" id="btn-demo" type="button" title="Pula quase todo o percurso e vai direto ao chefe (útil para apresentar)">Modo demonstração</button>
+              </div>
+              <p style="font-size:.8rem;opacity:.8">Setas/WASD mover · Espaço/Z/J atirar · X/K especial · P pausar · M som</p>
+            </div>
+
+            <!-- Pausa -->
+            <div class="overlay hidden" id="screen-pause">
+              <h2>PAUSADO</h2>
+              <div class="row">
+                <button class="btn" id="btn-resume" type="button">Continuar</button>
+                <button class="btn alt" id="btn-menu-1" type="button">Menu</button>
+              </div>
+            </div>
+
+            <!-- Game Over -->
+            <div class="overlay hidden" id="screen-gameover">
+              <h2 class="big">GAME OVER</h2>
+              <p id="over-info"></p>
+              <div class="stats"><div><b id="over-score">000000</b>pontos</div></div>
+              <div class="row">
+                <button class="btn" id="btn-retry" type="button">↻ Tentar Novamente</button>
+                <button class="btn alt" id="btn-menu-2" type="button">Menu</button>
+              </div>
+            </div>
+
+            <!-- Vitória (depois da animação KNOCKOUT! no canvas) -->
+            <div class="overlay hidden" id="screen-victory">
+              <h2 class="big">VITÓRIA!</h2>
+              <div class="stats">
+                <div><b id="win-score">000000</b>pontos</div>
+                <div><b id="win-time">0:00</b>tempo</div>
+                <div><b id="win-hits">0</b>danos sofridos</div>
+              </div>
+              <div>Nota <span class="grade" id="win-grade">S</span></div>
+              <div class="row">
+                <button class="btn" id="btn-again" type="button">Jogar de novo</button>
+                <button class="btn alt" id="btn-menu-3" type="button">Menu</button>
+              </div>
+            </div>
+          </div>
+          <p class="hint">Clique no jogo se as teclas não responderem. O jogo pausa sozinho ao trocar de aba.</p>
+        </div>
+
+        <div class="grid cols-2">
+          <section class="card">
+            <h3>🎯 Objetivo</h3>
+            <p>
+              Atravesse o pântano por cerca de <strong>3 minutos</strong> derrotando sapos trompetistas e peixes voadores, depois enfrente e
+              <strong>derrote o chefe Tralalero Tralala</strong> (barra de vida no topo da tela) sem perder seus 5 pontos de vida.
+              Quanto menos danos sofrer, melhor a nota final.
+            </p>
+            <p>Tudo que é <strong>vermelho com borda clara</strong> machuca: notas musicais, bolhas, estrelas do chefe e o corpo dos inimigos.</p>
+          </section>
+
+          <section class="card">
+            <h3>⌨️ Comandos</h3>
+            <table>
+              <tbody>
+                <tr><th>Ação</th><th>Teclas</th></tr>
+                <tr><td>Mover</td><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> ou <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></td></tr>
+                <tr><td>Atirar (segure)</td><td><kbd>Espaço</kbd> ou <kbd>Z</kbd> ou <kbd>J</kbd></td></tr>
+                <tr><td>Ataque especial</td><td><kbd>X</kbd> ou <kbd>K</kbd></td></tr>
+                <tr><td>Pausar</td><td><kbd>P</kbd> ou <kbd>Esc</kbd></td></tr>
+                <tr><td>Som ligado/desligado</td><td><kbd>M</kbd></td></tr>
+                <tr><td>Iniciar (no menu)</td><td><kbd>Enter</kbd></td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="card">
+            <h3>🃏 Painel (HUD)</h3>
+            <ul>
+              <li><strong>Cartão HP</strong> (canto inferior esquerdo): vidas restantes.</li>
+              <li><strong>5 cartões de energia:</strong> enchem ao acertar e derrotar inimigos. Com todos cheios, aperte <kbd>X</kbd>!</li>
+              <li><strong>Barra "Percurso"</strong> (embaixo): quanto falta para o chefe chegar.</li>
+              <li><strong>Barra do chefe</strong> (topo): vida dele, com marcas nas mudanças de fase.</li>
+            </ul>
+          </section>
+
+          <section class="card">
+            <h3>💡 Dicas</h3>
+            <ul>
+              <li>Sua hitbox é pequena: foque no <em>centro</em> do crocodilo ao desviar.</li>
+              <li>Use o especial para limpar a tela ou para tirar um bom pedaço da vida do chefe.</li>
+              <li>Quando a faixa vermelha com "!" aparecer, o chefe vai investir naquela altura. Saia dela!</li>
+              <li>Na espiral da fase 3, mova-se em círculos largos, sem correr contra os tiros.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p style="margin:0">Pântano Surreal — projeto de graduação · HTML + CSS + JavaScript · Inspirado em Cuphead (sem uso de assets de terceiros).</p>
+  </footer>
+
+  <!-- Scripts: a ordem importa (cada arquivo usa o que veio antes) -->
+  <script src="nav.js"></script>
+  <script src="config.js"></script>
+  <script src="utils.js"></script>
+  <script src="input.js"></script>
+  <script src="audio.js"></script>
+  <script src="sprites.js"></script>
+  <script src="background.js"></script>
+  <script src="effects.js"></script>
+  <script src="entities.js"></script>
+  <script src="director.js"></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
